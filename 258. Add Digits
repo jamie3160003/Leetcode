@@ -1,0 +1,21 @@
+public static int addDigits(int num){
+		int lastDigit = num % 10;
+		int en = lastDigit;
+		int factor = 1;
+		int answer = lastDigit;
+		while(num - en != 0){
+			factor = factor*10;
+			int temp = num/factor;
+			int digit = temp%10;
+			en = en + digit*factor;
+			answer = answer + digit; 
+		}
+		
+		// conditioning on whether the answer is single digit.
+		//if not, do the recursion
+		if(answer%10 != answer) 
+				answer = addDigits(answer);
+		
+		return answer;
+		
+	}
