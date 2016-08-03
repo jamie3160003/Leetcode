@@ -1,0 +1,55 @@
+package learning;
+import java.util.*;
+
+public class learning1 {
+	public static void main(String[] args){
+		TreeNode a = new TreeNode(1);
+		TreeNode b = new TreeNode(2);
+		TreeNode c = new TreeNode(3);
+		TreeNode d = new TreeNode(4);
+		TreeNode e = new TreeNode(5);
+		a.left = b;
+		a.right = c;
+		b.left = d;
+		d.left = e;
+		int number = maxDepth(a);
+		System.out.println(number);
+		
+	}
+	
+	
+	public static int maxDepth(TreeNode root){
+		if (root == null) return 0;
+		
+		int depth = 0;
+		LinkedList<TreeNode> queue = new LinkedList<>();
+		queue.push(root);
+		while(!queue.isEmpty()){
+			int size = queue.size();
+			
+			while(size!=0){
+				TreeNode currentNode = queue.pop();
+				if(currentNode.left!=null){
+					queue.addLast(currentNode.left);
+				}
+				if(currentNode.right!=null){
+					queue.addLast(currentNode.right);
+				}
+				size--;
+			}
+			depth++;
+		}
+		return depth;
+	}
+}
+
+class TreeNode{
+	int val;
+	TreeNode left;
+	TreeNode right;
+	TreeNode(int x) {
+		val = x;
+		left = null;
+		right = null;
+		}
+}
