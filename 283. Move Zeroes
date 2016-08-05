@@ -1,0 +1,30 @@
+package learning;
+
+
+public class learning1 {
+	
+	public static void main(String[] args){
+		int myNums[]={0,1,0,3,12};
+		moveZeros(myNums);
+		for(int i : myNums){
+			System.out.println(i);
+		}
+	}
+	
+	public static void moveZeros(int[] nums){
+		int index = 0;
+		int howManyZero = 0;
+		for (int i=0; i < nums.length; i++){
+			if(nums[i]==0){
+				howManyZero++;
+				
+			}else{
+				nums[index] = nums[i];
+				index++;	
+			}
+		}if(howManyZero!=0){
+			for(int i = index; i<index+howManyZero; i++){
+				nums[i] = 0;
+			}
+		}
+	}
