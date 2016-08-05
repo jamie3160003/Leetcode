@@ -1,0 +1,50 @@
+package learning;
+import java.util.*;
+
+public class learning1 {
+	
+	public static void main(String[] args){
+		int[] nums1 = {1,2,2,1,3};
+		int[] nums2 = {2,2,3};
+		int[] answer = intersection(nums1,nums2);
+		for(int i =0;i<answer.length; i++){
+			System.out.println(answer[i]);
+		}
+	}
+	
+	public static int[] intersection(int[] nums1, int[] nums2) {
+		
+		ArrayList<Integer> array = new ArrayList<>();
+		for(int i =0; i< nums1.length; i++){
+			for(int j=0; j< nums2.length; j++){
+				if(nums2[j]==nums1[i]){
+					int theValue = nums2[j];
+					int isExist = 0;
+					for(Integer k: array){
+						if(k.intValue()==theValue){
+							isExist = 1;
+							break;
+						}
+					}
+					if(isExist!=1){
+						Integer temp = new Integer(theValue);
+						array.add(temp);
+					}
+				}
+			}
+					
+		}
+		
+	
+		
+		//covert ArrayList to int[]
+		int size = array.size();
+		int[] answer = new int[size];
+		int index = 0;
+		for(Integer i: array){
+			answer[index]= i.intValue();
+			index++;
+		}
+		return answer;
+    }
+}
