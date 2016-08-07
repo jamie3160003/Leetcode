@@ -1,0 +1,15 @@
+package learning;
+import java.util.*;
+
+public class learning1 {
+	
+	public boolean containsDuplicate(int[] nums) {
+		Set<Integer> mySet = new HashSet<>();
+		for(int i=0; i<nums.length;i++){
+			Integer temp = new Integer(nums[i]);
+			if (mySet.contains(temp)) return true;
+			mySet.add(temp);
+		}
+		return false;
+	}
+}
