@@ -1,0 +1,35 @@
+package learning;
+
+
+public class learning1 {
+	
+	public int majorityElement(int[] nums){
+		int counterA = 0;
+		int counterB = 0;
+		int candidateA = -1;
+		int candidateB = -1;
+		for(int i=0; i<nums.length; i++){
+			if(nums[i]==candidateA) counterA++;
+			else if(nums[i]==candidateB) counterB++;
+			else{
+				if(counterA==0) {
+					candidateA = nums[i];
+					counterA++;
+				}else if(counterB ==0){
+					candidateB = nums[i];
+					counterB++;
+				}else{
+					counterA--;
+					counterB--;
+				}
+				
+			}
+			
+		}
+		//check A or B which one is majority
+		if(counterA>counterB) return candidateA;
+		else return candidateB;
+		
+	}
+}
+
