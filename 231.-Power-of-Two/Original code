@@ -1,0 +1,26 @@
+package learning;
+
+
+public class learning1 {
+	
+	public boolean isPowerOfTwo(int n) {
+
+		if(n<=0) return false;
+		if(n==1) return true;
+        int counter=0;
+        int test=1;
+        int temp = n;
+        if(n<0) n=-1*n;
+		while(true){
+			n=n/2;
+			counter++;
+			if(n==1) {
+				for(int i=1; i<=counter;i++){
+					test = test*2;
+				}
+				if (temp==test) return true;
+				else return false;
+			}
+		}
+    }
+}
