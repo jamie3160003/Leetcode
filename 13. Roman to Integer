@@ -1,0 +1,26 @@
+package learning;
+import java.util.*;
+
+public class learning1 {
+	
+	public int romanToInt(String s) {
+		HashMap<Character,Integer> roman = new HashMap<>();
+		roman.put('I',1);
+		roman.put('V',5);
+		roman.put('X',10);
+		roman.put('L',50);
+		roman.put('C',100);
+		roman.put('D',500);
+		roman.put('M',1000);
+		int curVal = 0;
+		int preVal = 0;
+		int ans = 0;
+		for(int i=0; i<s.length(); i++){
+			curVal = roman.get(s.charAt(i));
+			if(preVal<curVal) {ans = ans - 2*preVal;}
+			ans=ans+curVal;
+			preVal = curVal;
+		}
+		return ans;
+    }
+}
