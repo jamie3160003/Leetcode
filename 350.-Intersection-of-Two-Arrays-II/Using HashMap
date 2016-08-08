@@ -1,0 +1,35 @@
+package learning;
+import java.util.*;
+
+public class learning1 {
+	
+	public int[] intersect(int[] nums1, int[] nums2) {
+		HashMap<Integer,Integer> myMap = new HashMap<>(); 
+		ArrayList<Integer> answer = new ArrayList<>();
+		
+		for(int i : nums1){
+			Integer temp = new Integer(i);
+			if(myMap.containsKey(temp)){
+				myMap.put(temp,myMap.get(temp)+1);
+			}else{
+				myMap.put(temp, 1);
+			}
+		}
+		for(int i : nums2){
+			Integer temp = new Integer(i);
+			if(myMap.containsKey(temp)&&myMap.get(temp)!=0){
+				myMap.put(temp,myMap.get(temp)-1);
+				answer.add(temp);
+			}
+		}
+		int size = answer.size();
+		int[] result = new int[size];
+		int index = 0;//index start with 0
+		for (Integer i : answer){
+			result[index]=i.intValue();
+			index++;
+		}
+		return result;
+	}
+}
+
