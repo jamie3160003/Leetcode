@@ -1,0 +1,42 @@
+package learning;
+import java.util.*;
+
+public class learning1 {
+	
+	public int[] intersect(int[] nums1, int[] nums2) {
+    int[] shortNums;
+    int[] longNums;
+	if(nums1.length<nums2.length) {shortNums = nums1;
+	longNums = nums2;
+	}
+	else {
+		shortNums = nums2;
+		longNums = nums1;
+	}
+	
+	Deque<Integer> myQueue = new LinkedList<>();
+	List<Integer> myList = new ArrayList<>();
+	
+	for (int i : longNums){
+		Integer temp = new Integer(i);
+		myQueue.add(temp);
+	}
+	for(int i : shortNums){
+		Integer temp = new Integer(i);
+		if(myQueue.contains(temp)){
+			myQueue.remove(temp);
+			myList.add(temp);
+		}
+	}
+	int size = myList.size();
+	int[] answer = new int[size];
+	int index = 0;
+	for(Integer i: myList){
+		answer[index] = i.intValue();
+		index++;
+	}
+	return answer;
+	
+    }
+}
+
