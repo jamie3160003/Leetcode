@@ -1,0 +1,27 @@
+package learning;
+
+
+public class learning1 {
+	
+	public boolean isHappy(int n) {
+        int digit;
+        int current;
+        int temp=-1;
+        while(true){
+        	current=0;
+			while(n!=0){
+	        	digit = n%10;
+	        	current = current + digit*digit;
+	        	n=n/10;
+	        }
+			n=current;
+			if(n<10){
+				if(temp==n) return false;
+				temp = n;
+				if(n==1) return true;
+			}
+			
+        }
+        
+    }
+}
