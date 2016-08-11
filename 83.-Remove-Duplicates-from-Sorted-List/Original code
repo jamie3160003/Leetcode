@@ -1,0 +1,27 @@
+package learning;
+import java.util.*;
+
+
+public class learning1 {
+	    public ListNode deleteDuplicates(ListNode head) {
+	        HashSet<Integer> map = new HashSet<>();
+	        ListNode currentNode = head;
+	        ListNode previousNode = null;
+	        if (head==null) return null;
+	        while(currentNode!=null){
+	        	
+	        	
+	        	if (map.contains(currentNode.val)){
+	        		currentNode = currentNode.next;
+	        		previousNode.next = currentNode;
+	        	}else{
+	        		Integer temp = new Integer(currentNode.val);
+	        		map.add(temp);
+	        		previousNode = currentNode;
+	        		currentNode = currentNode.next;	
+	        	}
+	        }
+	        return head;
+	    }
+    
+}
