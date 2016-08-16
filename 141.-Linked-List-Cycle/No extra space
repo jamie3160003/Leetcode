@@ -1,0 +1,23 @@
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+     
+     ListNode cur;
+     ListNode pre;
+     cur = head;
+     pre = head;
+     if(head == null) return false;
+     while(true){
+    	 
+    	 cur = cur.next;
+    	 if(cur == null||cur.next==null) break;
+    	 pre.next = head;
+    	 pre = cur;
+    			 
+    	 if(cur.next.next == head|| cur.next.next == cur) return true;
+    	 
+     }
+     
+     return false;
+	
+    }
+}
