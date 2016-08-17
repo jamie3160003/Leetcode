@@ -15,8 +15,8 @@ public class Solution {
         int j=s.length()-1;
         char[] ans = s.toCharArray();
         if(s.length()==0) return s;
-        while(true){
-        	if(i>j) break;
+        while(i<j){
+        	
         	if(!set.contains(ans[i])){
         		i++;
         		continue;
