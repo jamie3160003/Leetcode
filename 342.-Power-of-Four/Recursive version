@@ -1,0 +1,11 @@
+public class Solution {
+    public boolean isPowerOfFour(int num) {
+        boolean ans;
+	   if (num==0 || num<0) return false;
+       if (num%4==0){
+    	   ans = isPowerOfFour(num/4);
+    	   return ans;
+       }else if(num==1)return true;
+       else return false;
+    }
+}
