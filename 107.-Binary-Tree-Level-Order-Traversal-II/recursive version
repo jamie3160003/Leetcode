@@ -1,0 +1,27 @@
+public class Solution {
+    public static List<List<Integer>> levelOrderBottom(TreeNode root) {
+		List<List<Integer>> listOfList = new LinkedList<>();
+		List<TreeNode> list = new LinkedList<>();
+		if (root==null) return listOfList;
+		list.add(root);
+		helper(list,listOfList);
+		return listOfList;
+}
+
+public static void helper(List<TreeNode> list, List<List<Integer>> listOfList ){
+if (list.isEmpty()) return;
+		List<Integer> listOfInt = new LinkedList<>();
+		List<TreeNode> sublist = new LinkedList<>();
+		
+		for(TreeNode i: list){
+			int val = i.val;
+			listOfInt.add(val);
+			if (i.left!=null) sublist.add(i.left);
+			if(i.right!=null) sublist.add(i.right);
+		}
+		helper(sublist,listOfList);
+		listOfList.add(listOfInt);
+		
+		
+	}
+}
