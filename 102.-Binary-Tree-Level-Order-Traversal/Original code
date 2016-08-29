@@ -1,0 +1,41 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+		List<List<Integer>> result = new ArrayList<>();
+		
+		Deque<TreeNode> queue = new LinkedList<>();
+		if(root==null) return result;
+		queue.push(root);
+		
+		int counter=1;
+		
+		while(counter!=0){
+			List<Integer> list = new ArrayList<>();
+			int items=0;
+			for(int j=1; j<=counter;j++){
+				TreeNode cur = queue.pop();
+				list.add(cur.val);
+				if(cur.left!=null) {
+					items++;
+					queue.addLast(cur.left);
+				}
+					
+				if(cur.right!=null) {
+					items++;
+					queue.addLast(cur.right);
+				}
+			}
+			counter = items;
+			result.add(list);
+		}
+		return result;
+    }
+    }
