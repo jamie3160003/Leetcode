@@ -1,0 +1,43 @@
+class MyQueue {
+    	private Stack<Integer> stack = new Stack<>();
+	public void push(int x) {
+        stack.push(x);
+    }
+
+    // Removes the element from in front of queue.
+    public void pop() {
+        Stack<Integer> tempStack = new Stack<>();
+        while(!stack.empty()){
+        	Integer temp = stack.pop();
+        	tempStack.push(temp);
+        }
+        tempStack.pop();
+        
+        while(!tempStack.empty()){
+        	Integer temp = tempStack.pop();
+        	stack.push(temp);
+        }
+    }
+
+    // Get the front element.
+    public int peek() {
+    	Stack<Integer> tempStack = new Stack<>();
+        while(!stack.empty()){
+        	Integer temp = stack.pop();
+        	tempStack.push(temp);
+        }
+        Integer ans = tempStack.peek();
+        
+        while(!tempStack.empty()){
+        	Integer temp = tempStack.pop();
+        	stack.push(temp);
+        }
+        return ans.intValue();
+    }
+
+    // Return whether the queue is empty.
+    public boolean empty() {
+        if(stack.empty()) return true;
+        else return false;
+    }
+}
