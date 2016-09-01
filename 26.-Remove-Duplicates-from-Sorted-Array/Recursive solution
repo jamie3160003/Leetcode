@@ -1,0 +1,17 @@
+public class Solution {
+    public int removeDuplicates(int[] nums) {
+	 return helper(nums,0,1);
+	 }
+	 public int helper(int[] nums, int index1, int index2){
+		 
+		 int i = index1+1;
+		 if(i>=nums.length) return index2;
+		 while(nums[index1]==nums[i]) {
+			 i++;
+			 if (i>=nums.length) return index2;
+		 }
+		 
+		 nums[index2]= nums[i];
+		 return helper(nums,i,index2+1);
+        }
+    }
