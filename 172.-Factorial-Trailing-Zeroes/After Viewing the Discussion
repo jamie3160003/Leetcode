@@ -1,0 +1,14 @@
+public class Solution {
+    public int trailingZeroes(int n) {
+        	int k=1;
+		int newN =n;
+		int ans = 0;
+		if(n<5) return 0;
+		while(Math.pow(5,k)<=n){
+			newN = newN/5;
+			ans = ans + newN;
+			k++;
+		}
+		return ans;
+    }
+}
