@@ -1,0 +1,19 @@
+public class Solution {
+    public boolean hasPathSum(TreeNode root, int sum) {
+        if(root==null) return false;
+	return helper(root, root.val, sum);
+}
+
+public boolean helper(TreeNode root, int cur , int sum){
+	if(root.left==null && root.right == null){
+		
+		if(sum==cur) return true;
+		else return false;
+	}else{
+		if(root.left!=null && helper(root.left,cur+root.left.val,  sum)==true) return true;
+		if(root.right!=null && helper(root.right,cur+root.right.val,  sum)==true) return true;
+	}
+	
+	return false;
+    }
+}
